@@ -47,17 +47,15 @@ public class UserController {
 	 * Save User 
 	 */
 
-	private boolean getFeatureValue() {
+private boolean getFeatureValue() {
 		
 		//You need to update your sdk token in below line
-		LDClient ldClient = new LDClient("sdk-9b960784-9643-4340-9ef1-0577e9ab7ab7");
-		LDUser user = new LDUser.Builder("UNIQUE IDENTIFIER")
-				  .firstName("Bob")
-				  .lastName("Loblaw")
-				  .custom("groups", LDValue.buildArray().add("beta_testers").build())
-				  .build();
+		LDClient ldClient = new LDClient("sdk-378e1611-aa33-4fa2-b477-9279c59a6c59");
+		LDContext context = LDContext.builder("UNIQUE IDENTIFIER")
+				           .name("Bob")
+				           .build();
 		
-				boolean featureValue = ldClient.boolVariation("login-button-color", user, false);
+		boolean featureValue = ldClient.boolVariation("login-button-color", context, false);
 
 
 				try {
